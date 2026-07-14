@@ -137,4 +137,24 @@ public class UsuarioConverter {
                 .build();
     }
 
+    public Endereco adiconarEndereco(Usuario usuarioEntity, EnderecoDTO enderecoDTO){
+        return Endereco.builder()
+                .rua(enderecoDTO.getRua())
+                .numero(enderecoDTO.getNumero())
+                .complemento(enderecoDTO.getComplemento())
+                .cidade(enderecoDTO.getCidade())
+                .cep(enderecoDTO.getCep())
+                .estado(enderecoDTO.getEstado())
+                .usuario_id(usuarioEntity.getId())
+                .build();
+    }
+
+    public Telefone adiconarTelefone(Usuario usuarioEntity, TelefoneDTO telefoneDTO){
+        return Telefone.builder()
+                .ddd(telefoneDTO.getDdd())
+                .numero(telefoneDTO.getNumero())
+                .usuario_id(usuarioEntity.getId())
+                .build();
+    }
+
 }
