@@ -120,20 +120,20 @@ public class UsuarioConverter {
     public Endereco atualizaDadosEndereco(Endereco enderecoEntity, EnderecoDTO enderecoDTO) {
         return Endereco.builder()
                 .id(enderecoEntity.getId())
-                .rua(enderecoEntity.getRua() != null ? enderecoEntity.getRua() : enderecoDTO.getRua())
-                .numero(enderecoEntity.getNumero() != null ? enderecoEntity.getNumero() : enderecoDTO.getNumero())
-                .cidade(enderecoEntity.getCidade() != null ? enderecoEntity.getCidade() : enderecoDTO.getCidade())
-                .complemento(enderecoDTO.getComplemento() != null ? enderecoDTO.getComplemento() : enderecoDTO.getComplemento())
-                .estado(enderecoDTO.getEstado() != null ? enderecoDTO.getEstado() : enderecoDTO.getEstado())
-                .cep(enderecoDTO.getCep() != null ? enderecoDTO.getCep() : enderecoDTO.getCep())
+                .rua(enderecoDTO.getRua() != null ? enderecoDTO.getRua() : enderecoEntity.getRua())
+                .numero(enderecoDTO.getNumero() != null ? enderecoDTO.getNumero() : enderecoEntity.getNumero())
+                .cidade(enderecoDTO.getCidade() != null ? enderecoDTO.getCidade() : enderecoEntity.getCidade())
+                .complemento(enderecoDTO.getComplemento() != null ? enderecoDTO.getComplemento() : enderecoEntity.getComplemento())
+                .estado(enderecoDTO.getEstado() != null ? enderecoDTO.getEstado() : enderecoEntity.getEstado())
+                .cep(enderecoDTO.getCep() != null ? enderecoDTO.getCep() : enderecoEntity.getCep())
                 .build();
     }
 
     public Telefone atualizaDadosTelefone(Telefone telefoneEntity, TelefoneDTO telefoneDTO) {
         return Telefone.builder()
                 .id(telefoneEntity.getId())
-                .ddd(telefoneDTO.getDdd() != null ? telefoneDTO.getDdd() : telefoneDTO.getDdd())
-                .numero(telefoneDTO.getNumero() != null ? telefoneDTO.getNumero() : telefoneDTO.getNumero())
+                .ddd(telefoneDTO.getDdd() != null ? telefoneDTO.getDdd() : telefoneEntity.getDdd())
+                .numero(telefoneDTO.getNumero() != null ? telefoneDTO.getNumero() : telefoneEntity.getNumero())
                 .build();
     }
 

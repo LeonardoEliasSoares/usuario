@@ -80,7 +80,9 @@ public class UsuarioService {
 
         Endereco endereco = enderecoRepository.findById(idEndereco).orElseThrow(() -> new ResourceNotFoundException("id não encontrado " + idEndereco));
 
-        return usuarioConverter.paraEnderecoDTO(usuarioConverter.atualizaDadosEndereco(endereco, enderecoDTO));
+        Endereco enderecoAtualizado = usuarioConverter.atualizaDadosEndereco(endereco, enderecoDTO);
+
+        return usuarioConverter.paraEnderecoDTO(enderecoRepository.save(enderecoAtualizado));
 
     }
 
@@ -88,7 +90,9 @@ public class UsuarioService {
 
         Telefone telefone = telefoneRepository.findById(idTelefone).orElseThrow(() -> new ResourceNotFoundException("id não encontrado " + idTelefone));
 
-        return usuarioConverter.paraTelefoneDTO(usuarioConverter.atualizaDadosTelefone(telefone, telefoneDTO));
+        Telefone telefoneAtualizado = usuarioConverter.atualizaDadosTelefone(telefone, telefoneDTO);
+
+        return usuarioConverter.paraTelefoneDTO(telefoneRepository.save(telefoneAtualizado));
 
     }
 

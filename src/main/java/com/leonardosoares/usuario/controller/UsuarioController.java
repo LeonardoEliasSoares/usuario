@@ -7,7 +7,6 @@ import com.leonardosoares.usuario.business.dto.UsuarioDTO;
 import com.leonardosoares.usuario.infrastructure.entity.Usuario;
 import com.leonardosoares.usuario.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -58,13 +57,13 @@ public class UsuarioController {
 
     @PutMapping("endereco")
     public ResponseEntity<EnderecoDTO> atualizarDadosEndereco(@RequestBody EnderecoDTO enderecoDTO,
-                                                           @Param("id") Long idEndereco) {
+                                                           @RequestParam("id") Long idEndereco) {
         return ResponseEntity.ok(usuarioService.atualizaDadosEndereco(idEndereco, enderecoDTO));
     }
 
     @PutMapping("telefone")
     public ResponseEntity<TelefoneDTO> atualizarDadosTelefone(@RequestBody TelefoneDTO telefoneDTO,
-                                                              @Param("id") Long idTelefone) {
+                                                              @RequestParam("id") Long idTelefone) {
         return ResponseEntity.ok(usuarioService.atualizaDadosTelefone(idTelefone, telefoneDTO));
     }
 
