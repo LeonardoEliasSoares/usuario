@@ -57,7 +57,7 @@ public class UsuarioController {
 
     @PutMapping("endereco")
     public ResponseEntity<EnderecoDTO> atualizarDadosEndereco(@RequestBody EnderecoDTO enderecoDTO,
-                                                           @RequestParam("id") Long idEndereco) {
+                                                              @RequestParam("id") Long idEndereco) {
         return ResponseEntity.ok(usuarioService.atualizaDadosEndereco(idEndereco, enderecoDTO));
     }
 
@@ -65,6 +65,18 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTO> atualizarDadosTelefone(@RequestBody TelefoneDTO telefoneDTO,
                                                               @RequestParam("id") Long idTelefone) {
         return ResponseEntity.ok(usuarioService.atualizaDadosTelefone(idTelefone, telefoneDTO));
+    }
+
+    @PostMapping("endereco")
+    public ResponseEntity<EnderecoDTO> adicionarEndereco(@RequestBody EnderecoDTO enderecoDTO,
+                                                         @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(usuarioService.adicionaEndereco(token, enderecoDTO));
+    }
+
+    @PostMapping("telefone")
+    public ResponseEntity<TelefoneDTO> adicionarTelefone(@RequestBody TelefoneDTO telefoneDTO,
+                                                         @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(usuarioService.adicionaTelefone(token, telefoneDTO));
     }
 
 
