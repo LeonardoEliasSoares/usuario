@@ -56,8 +56,8 @@ public class UsuarioService {
     }
 
     //busca o usuarioEntity por email
-    public Usuario buscarUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("Email não encontrado"));
+    public UsuarioDTO buscarUsuarioPorEmail(String email) {
+        return usuarioConverter.paraUsuarioDTO(usuarioRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("Email não encontrado")));
     }
 
     //Exclui um usuario passando o email
